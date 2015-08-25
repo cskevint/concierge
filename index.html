@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hotel Concierge</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Hotel Concierge</a>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <div id="lockers">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-4">
+        <h2>Leave Bag</h2>
+
+        <form class="form-inline">
+            <p class="form-control-static">Choose a size: </p>
+
+            <div class="form-group">
+                <select class="form-control" id="size">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default" href="#" role="button" id="leave">Leave bag &raquo;</button>
+        </form>
+
+        <div class="well hidden">
+            Your ticket number is: <span id="new_ticket">S85</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Pick up Bag</h2>
+
+        <form class="form-inline">
+            <p class="form-control-static">Ticket number: </p>
+
+            <div class="form-group">
+                <input class="form-control" type="text" id="ticket" style="width:100px"/>
+            </div>
+            <button type="submit" class="btn btn-default" href="#" role="button" id="pickup">Pick up bag &raquo;</button>
+        </form>
+
+        <div class="well hidden">
+            Your locker size was: <span id="locker_size">S</span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Testing</h2>
+
+        <form class="form-inline">
+            <p class="form-control-static">Fill: </p>
+
+            <div class="form-group">
+                <select class="form-control" id="sizes">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="ALL">All</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default" href="#" role="button" id="fill">Fill &raquo;</button>
+
+        </form>
+
+        <button type="submit" class="btn btn-default" href="#" role="button" id="random">Randomize &raquo;</button>
+        <button type="submit" class="btn btn-default" href="#" role="button" id="clear">Clear &raquo;</button>
+    </div>
+</div>
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
