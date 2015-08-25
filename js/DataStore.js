@@ -53,11 +53,6 @@ DataStore.invalidTicket = function (ticket) {
   return ticket === null || ticket.length == 0 || isNaN(parseInt(ticket, 10)) || this.map[ticket] === undefined;
 };
 
-//DataStore.isReserved = function (ticket) {
-//  var obj = this.identifyLocker(ticket);
-//  return obj && this.map[ticket] !== null && this[obj.size][obj.number - 1] !== null;
-//};
-
 DataStore.identifyLocker = function (ticket) {
   var converted = this.map[ticket];
   if (converted) {
