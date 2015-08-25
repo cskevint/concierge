@@ -4,6 +4,7 @@ var DataStore = {
   'L': [],
   map: {},
   counter: 100,
+  sizes: ['S', 'M', 'L'],
   totalPerSize: 1000,
   nextSize: {
     'L': null,
@@ -83,11 +84,17 @@ DataStore.clearLocker = function (ticket) {
   };
 };
 
+DataStore.fillLockers = function (size, total) {
+  for (var i = 0; i < total; i++) {
+    this.reserveLocker({size: size, number: i + 1, key: size + (i + 1)});
+  }
+};
+
 _.extend(DataStore, Backbone.Events);
 
 DataStore.on("init", function () {
   var self = this;
-  _.each(['S', 'M', 'L'], function (size) {
+  _.each(this.sizes, function (size) {
     self[size] = [];
     for (var i = 0; i < this.totalPerSize; i++) {
       self[size].push(null);
@@ -101,17 +108,48 @@ DataStore.on("leave", function (size) {
   var locker = this.findLocker(size);
   if (locker) {
     var ticket = this.reserveLocker(locker);
-    DataStore.trigger("reserved", _.extend({ticket: ticket}, locker));
+    this.trigger("reserved", _.extend({ticket: ticket}, locker));
   } else {
-    DataStore.trigger("full");
+    this.trigger("full");
   }
 });
 
 DataStore.on("pickup", function (ticket) {
   if (this.invalidTicket(ticket)) {
-    DataStore.trigger("invalid", ticket);
+    this.trigger("invalid", ticket);
   } else {
     var locker = this.clearLocker(ticket);
-    DataStore.trigger("cleared", _.extend({ticket: ticket}, locker));
+    this.trigger("cleared", _.extend({ticket: ticket}, locker));
   }
+});
+
+DataStore.on('fill', function (size) {
+  var self = this;
+  if (size == 'ALL') {
+    _.each(this.sizes, function (size) {
+      self.fillLockers(size, self.totalPerSize);
+      self.trigger('filled', {size: size, count: self.totalPerSize});
+    });
+  } else {
+    this.fillLockers(size, this.totalPerSize);
+    this.trigger('filled', {size: size, count: this.totalPerSize});
+  }
+});
+
+DataStore.on('random', function () {
+  var self = this;
+  this.trigger('init');
+  _.each(this.sizes, function (size) {
+    var random = Math.random() * self.totalPerSize;
+    self.fillLockers(size, random);
+    self.trigger('filled', {size: size, count: random});
+  });
+});
+
+DataStore.on('reset', function () {
+  var self = this;
+  this.trigger('init');
+  _.each(this.sizes, function (size) {
+    self.trigger('filled', {size: size, count: 0});
+  });
 });

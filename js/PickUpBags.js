@@ -37,23 +37,23 @@ var PickUpBags = Backbone.View.extend({
 
   messageTpl: _.template('Ticket <%= ticket %> was in size: <span class="locker_size"><%= sizeText %></span>'),
 
-  pickUpBag: function(event) {
+  pickUpBag: function (event) {
     var $ticket = this.$el.find('#ticket');
     DataStore.trigger("pickup", $ticket.val());
     $ticket.val('');
     event.preventDefault();
   },
 
-  clearLocker:function(locker) {
-    if(locker.contents) {
-      var data = _.extend({sizeText:this.sizesText[locker.size]}, locker);
+  clearLocker: function (locker) {
+    if (locker.contents) {
+      var data = _.extend({sizeText: this.sizesText[locker.size]}, locker);
       this.$el.find(".message").html(this.messageTpl(data));
     } else {
       this.$el.find(".message").html('Your bags were already picked up.');
     }
   },
 
-  invalidTicket: function(ticket) {
+  invalidTicket: function (ticket) {
     this.$el.find(".message").html('Your ticket is invalid.');
   }
 

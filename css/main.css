@@ -18,6 +18,15 @@
     height: 5px;
 }
 
+.storage .filled {
+    background-color: red;
+}
+
+.storage .divider {
+    clear:both;
+    height: 2px;
+}
+
 .leaveBags .message,
 .pickUpBags .message {
     margin-top: 10px;

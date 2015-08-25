@@ -34,16 +34,16 @@ var LeaveBags = Backbone.View.extend({
 
   messageTpl: _.template('Your ticket number is: <span class="ticket"><%= ticket %></span>'),
 
-  leaveBag: function(event) {
+  leaveBag: function (event) {
     DataStore.trigger("leave", this.$el.find('#size').val());
     event.preventDefault();
   },
 
-  reserveLocker:function(locker) {
+  reserveLocker: function (locker) {
     this.$el.find(".message").html(this.messageTpl(locker));
   },
 
-  fullStorage:function() {
+  fullStorage: function () {
     this.$el.find(".message").html('Storage is full. Please come back later.');
   }
 
