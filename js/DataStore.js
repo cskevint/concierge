@@ -91,7 +91,7 @@ DataStore.on("init", function () {
   var self = this;
   _.each(this.sizes, function (size) {
     self[size] = [];
-    for (var i = 0; i < this.totalPerSize; i++) {
+    for (var i = 0; i < self.totalPerSize; i++) {
       self[size].push(null);
     }
   });
