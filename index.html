@@ -33,42 +33,8 @@
 </div>
 
 <div class="container">
-    <div class="col-md-4">
-        <h2>Leave Bag</h2>
-
-        <form class="form-inline">
-            <p class="form-control-static">Choose a size: </p>
-
-            <div class="form-group">
-                <select class="form-control" id="size">
-                    <option value="S">Small</option>
-                    <option value="M">Medium</option>
-                    <option value="L">Large</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-default" href="#" role="button" id="leave">Leave bag &raquo;</button>
-        </form>
-
-        <div class="well hidden">
-            Your ticket number is: <span id="new_ticket">S85</span>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <h2>Pick up Bag</h2>
-
-        <form class="form-inline">
-            <p class="form-control-static">Ticket number: </p>
-
-            <div class="form-group">
-                <input class="form-control" type="text" id="ticket" style="width:100px"/>
-            </div>
-            <button type="submit" class="btn btn-default" href="#" role="button" id="pickup">Pick up bag &raquo;</button>
-        </form>
-
-        <div class="well hidden">
-            Your locker size was: <span id="locker_size">S</span>
-        </div>
-    </div>
+    <div class="col-md-4" id="leave_bags"></div>
+    <div class="col-md-4" id="pick_up_bags"></div>
     <div class="col-md-4">
         <h2>Testing</h2>
 
@@ -94,6 +60,12 @@
 
 <script src="js/vendor/jquery-1.11.2.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/underscore-min.js"></script>
+<script src="js/vendor/backbone-min.js"></script>
+<script src="js/DataStore.js"></script>
+<script src="js/Storage.js"></script>
+<script src="js/LeaveBags.js"></script>
+<script src="js/PickUpBags.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,22 +1,29 @@
+.storage .locker {
+    border: 1px solid black;
+    float: left;
+}
 
+.storage .small {
+    width: 5px;
+    height: 5px;
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+.storage .medium {
+    width: 10px;
+    height: 5px;
+}
 
+.storage .large {
+    width: 20px;
+    height: 5px;
+}
 
+.leaveBags .message,
+.pickUpBags .message {
+    margin-top: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.leaveBags .message .ticket,
+.pickUpBags .message .locker_size {
+    font-weight: bold;
+}
