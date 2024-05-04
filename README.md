@@ -2,8 +2,8 @@
 
 Deployed here:
 
-http://websites.doopr.com/concierge/
+http://www.doopr.com/concierge/
 
 Tests running here:
 
-http://websites.doopr.com/concierge/SpecRunner.html
+http://www.doopr.com/concierge/SpecRunner.html
